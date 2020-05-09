@@ -8,6 +8,7 @@
 import { createNamespacedHelpers } from "vuex";
 const { mapActions } = createNamespacedHelpers("user");
 export default {
+  name:'Login',
   data() {
     return {};
   },
