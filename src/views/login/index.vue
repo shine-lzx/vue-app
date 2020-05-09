@@ -1,6 +1,6 @@
 <template>
   <div>
-    login
+   <!-- <svg-icon icon-class={icon}/>clear -->
   </div>
 </template>
 
