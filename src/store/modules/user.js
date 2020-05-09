@@ -1,10 +1,19 @@
+import * as actionTypes from "./action-types.js";
 const state = {
   token: "",
+  openId: "",
 };
-const mutations = {};
+const mutations = {
+  SET_TOKEN: (state, token) => {
+    state.token = token;
+  },
+};
 
 const actions = {
-  // async login({ commit }, userInfo) {},
+  [actionTypes.OPEN_ID]: ({ commit }, openId) => {
+    console.log(openId);
+    commit("SET_TOKEN", openId);
+  },
 };
 
 export default {
