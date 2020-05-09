@@ -1,11 +1,8 @@
-const state = {
-  token: "",
-};
+const state = {};
+
 const mutations = {};
 
-const actions = {
-  // async login({ commit }, userInfo) {},
-};
+const actions = {};
 
 export default {
   namespaced: true,

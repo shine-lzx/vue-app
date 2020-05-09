@@ -10,6 +10,9 @@
         <img :src="image.url" alt="" />
       </SwipeItem>
     </Swipe>
+    <div>
+      66666666666666666
+    </div>
   </div>
 </template>
 

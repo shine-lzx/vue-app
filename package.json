@@ -5,8 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "svgo": "svgo -f src/icons/svg --config=src/assets/icons/svgo.yml"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "amfe-flexible": "^2.2.1",
@@ -31,8 +30,6 @@
     "node-sass": "^4.14.1",
     "postcss-pxtorem": "^5.1.1",
     "sass-loader": "^8.0.2",
-    "svg-sprite-loader": "^4.3.0",
-    "vue-template-compiler": "^2.6.11",
-    "svgo": "1.2.2"
+    "vue-template-compiler": "^2.6.11"
   }
 }

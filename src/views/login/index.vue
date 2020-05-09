@@ -1,13 +1,18 @@
 <template>
   <div>
-   <!-- <svg-icon icon-class={icon}/>clear -->
+    login
   </div>
 </template>
 
 <script>
+import { createNamespacedHelpers } from "vuex";
+const { mapActions } = createNamespacedHelpers("user");
 export default {
   data() {
     return {};
+  },
+  methods: {
+    ...mapActions({}),
   },
 };
 </script>
