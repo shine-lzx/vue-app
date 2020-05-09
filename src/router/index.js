@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "@/store/modules/user";
 Vue.use(VueRouter);
 
 const routes = [
@@ -9,7 +10,7 @@ const routes = [
     meta: {
       title: "首页",
     },
-    component: () => import("@/views/home/index"),
+    component: () => import("@/views/home"),
   },
 
   {
@@ -18,11 +19,14 @@ const routes = [
     meta: {
       title: "登录",
     },
-    component: () => import("@/views/login/index"),
+    component: () => import("@/views/login"),
   },
 
   {
     path: "/404",
+    meta: {
+      title: "404-NotFound",
+    },
     component: () => import("@/views/404"),
     hidden: true,
   },
@@ -33,23 +37,35 @@ const router = new VueRouter({
   routes,
 });
 
+// router.beforeEach((to, from, next) => {
+//   console.log(store.state.openId);
+//   if (to.meta.title) {
+//     document.title = to.meta.title;
+//   }
+//   if (to.path != "/login") {
+//     let uid = store.state.openId;
+//     if (uid) {
+//       if (to.path == "/") {
+//         next({ path: "/home" });
+//       }
+//       next();
+//     } else {
+//       next({ path: "/login" });
+//     }
+//   } else {
+//     next({ path: "/404" });
+//   }
+// });
 router.beforeEach((to, from, next) => {
-  /* 路由发生变化修改页面title */
-  if (to.meta.title) {
-    document.title = to.meta.title;
-  }
-  if (to.path != "/login") {
-    let uid = null; //此处判断是否登录
-    if (uid) {
-      if (to.path == "/") {
-        next({ path: "/home" });
-      }
-      next();
-    } else {
-      next({ path: "/login" });
-    }
+  console.log(store.state.openId);
+  if (to.matched.length === 0) {
+    from.name
+      ? next({
+          name: from.name,
+        })
+      : next("/404");
   } else {
-    next();
+    next(); //如果匹配到正确跳转
   }
 });
 
