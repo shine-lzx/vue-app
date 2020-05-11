@@ -49,7 +49,7 @@ export default {
     ...mapActions({ getOpenId: "OPEN_ID" }),
     onSubmit() {
       this.getOpenId("6666");
-      this.$router.push('/')
+      this.$router.push("/");
     },
   },
 };

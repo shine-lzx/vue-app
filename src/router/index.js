@@ -5,8 +5,18 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/login",
+    name: "Login",
+    meta: {
+      title: "登录",
+    },
+    component: () => import("@/views/login"),
+  },
+
+  {
     path: "/",
     redirect: "/home",
+    meta: { keepAlive: true },
     component: () => import("@/layout"),
     children: [
       {
@@ -25,15 +35,6 @@ const routes = [
         component: () => import("@/views/user"),
       },
     ],
-  },
-
-  {
-    path: "/login",
-    name: "Login",
-    meta: {
-      title: "登录",
-    },
-    component: () => import("@/views/login"),
   },
 
   {
