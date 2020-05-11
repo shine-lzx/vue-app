@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Search v-model="value" placeholder="请输入搜索关键词" />
     <Swipe
       class="my-swipe"
       :autoplay="3000"
@@ -11,21 +12,24 @@
       </SwipeItem>
     </Swipe>
     <div>
-      66666666666666666
+      <Button type="info" @click="jumpRouter()">登录页</Button>
     </div>
   </div>
 </template>
 
 <script>
-import { Swipe, SwipeItem } from "vant";
+import { Swipe, SwipeItem, Button, Search } from "vant";
 export default {
   name: "Home",
   components: {
     Swipe,
     SwipeItem,
+    Button,
+    Search,
   },
   data() {
     return {
+      value: "",
       images: [
         {
           index: 0,
@@ -41,6 +45,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    jumpRouter() {
+      this.$router.push({ path: "/login" });
+    },
   },
 };
 </script>
