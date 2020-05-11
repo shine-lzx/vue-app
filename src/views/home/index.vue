@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home-container">
     <Search v-model="value" placeholder="请输入搜索关键词" />
     <Swipe
       class="my-swipe"
@@ -11,20 +11,23 @@
         <img :src="image.url" alt="" />
       </SwipeItem>
     </Swipe>
-    <div>
-      <Button type="info" @click="jumpRouter()">登录页</Button>
+
+    <div class="bscroll" ref="bscroll">
+      <div class="bscroll-container">
+        <div v-for="i in 30" :key="i">{{i}}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Swipe, SwipeItem, Button, Search } from "vant";
+import BScroll from "better-scroll";
+import { Swipe, SwipeItem, Search } from "vant";
 export default {
   name: "Home",
   components: {
     Swipe,
     SwipeItem,
-    Button,
     Search,
   },
   data() {
@@ -46,19 +49,34 @@ export default {
       ],
     };
   },
-  methods: {
-    jumpRouter() {
-      this.$router.push({ path: "/login" });
-    },
+  mounted() {
+    this.$nextTick(() => {
+      let bscrollDom = this.$refs.bscroll;
+      this.aBScroll = new BScroll(bscrollDom, {});
+    });
   },
+  methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
+.home-container {
+  background: #ccc;
+  height: 100vh;
+  width: 100%;
+}
+
+.bscroll {
+  width: 100%;
+  height: calc(100vh - 304px);
+  overflow: hidden;
+}
+
 .my-swipe {
   .van-swipe-item {
     height: 250px;
     img {
+      width: 100%;
       height: 100%;
     }
   }

@@ -48,7 +48,7 @@ export default {
   methods: {
     ...mapActions({ getOpenId: "OPEN_ID" }),
     onSubmit() {
-      this.getOpenId("6666");
+      localStorage.setItem("isLogin", 1);
       this.$router.push("/");
     },
   },

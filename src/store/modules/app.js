@@ -1,12 +1,6 @@
-const state = {
-  direction: "forward", // 页面切换方向
-};
+const state = {};
 
-const mutations = {
-  updateDirection(state, direction) {
-    state.direction = direction;
-  },
-};
+const mutations = {};
 
 const actions = {};
 

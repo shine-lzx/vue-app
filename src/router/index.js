@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import store from "@/store/modules/user";
 Vue.use(VueRouter);
 
 const routes = [
@@ -16,7 +15,7 @@ const routes = [
   {
     path: "/",
     redirect: "/home",
-    meta: { keepAlive: true },
+    meta: { keepAlive: true, auth: true },
     component: () => import("@/layout"),
     children: [
       {
@@ -38,7 +37,7 @@ const routes = [
   },
 
   {
-    path: "/404",
+    path: "*",
     meta: {
       title: "404-NotFound",
     },
@@ -47,10 +46,22 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  mode: "history",
   base: process.env.BASE_URL,
   routes,
 });
 
-// router.beforeEach((to, from, next) => {});
+router.beforeEach((to, from, next) => {
+  let loginStatus = localStorage.getItem("isLogin");
+  if (to.matched.some((m) => m.meta.auth)) {
+    if (loginStatus) {
+      next();
+    } else {
+      next({ path: "/login", query: { Rurl: to.fullPath } });
+    }
+  } else {
+    next();
+  }
+});
 
 export default router;
