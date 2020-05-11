@@ -1,7 +1,7 @@
 import * as actionTypes from "./action-types.js";
 const state = {
   token: "",
-  openId: "9999",
+  openId: null,
 };
 const mutations = {
   SET_TOKEN: (state, token) => {
