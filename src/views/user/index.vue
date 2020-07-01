@@ -9,8 +9,7 @@ export default {
     /* eslint-disable */
     const viewer = new Viewer({
       container: document.querySelector("#viewer"),
-      panorama:
-        "http://192.168.200.248/files/houseType/20200628/d36d1d72-c130-4b77-9505-eb6df9159483.jpg",
+      panorama:{},
       // panorama: {
       //   front: "path/to/front.jpg",
       //   back: "path/to/back.jpg",
