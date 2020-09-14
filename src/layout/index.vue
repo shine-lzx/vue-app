@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import AppMain from "./AppMain";
-import BottomTab from "./bottomTab";
+import AppMain from './AppMain'
+import BottomTab from './bottomTab'
 export default {
-  name: "LayOut",
+  name: 'LayOut',
   components: {
     AppMain,
     BottomTab,
   },
   data() {
-    return {};
+    return {}
   },
-};
+}
 </script>

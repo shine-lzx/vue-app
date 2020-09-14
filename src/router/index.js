@@ -1,67 +1,77 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-Vue.use(VueRouter);
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/login",
-    name: "Login",
+    path: '/login',
+    name: 'Login',
     meta: {
-      title: "登录",
+      title: '登录',
     },
-    component: () => import("@/views/login"),
+    component: () => import('@/views/login'),
   },
 
   {
-    path: "/",
-    redirect: "/home",
+    path: '/',
+    redirect: '/home',
     meta: { keepAlive: true, auth: true },
-    component: () => import("@/layout"),
+    component: () => import('@/layout'),
     children: [
       {
-        name: "Home",
-        path: "home",
-        component: () => import("@/views/home"),
+        name: 'Home',
+        path: 'home',
+        component: () => import('@/views/home'),
       },
       {
-        name: "shopping",
-        path: "shopping",
-        component: () => import("@/views/shopping"),
+        name: 'SearchPage',
+        path: 'searchPage',
+        component: () => import('@/views/home/components/searchPage'),
       },
       {
-        name: "user",
-        path: "user",
-        component: () => import("@/views/user"),
+        name: 'shopping',
+        path: 'shopping',
+        component: () => import('@/views/shopping'),
+      },
+      {
+        name: 'user',
+        path: 'user',
+        component: () => import('@/views/user'),
+      },
+      {
+        name: 'map',
+        path: 'map',
+        component: () => import('@/views/map'),
       },
     ],
   },
 
   {
-    path: "*",
+    path: '*',
     meta: {
-      title: "404-NotFound",
+      title: '404-NotFound',
     },
-    component: () => import("@/views/404"),
+    component: () => import('@/views/404'),
   },
-];
+]
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes,
-});
+})
 
 router.beforeEach((to, from, next) => {
-  let loginStatus = localStorage.getItem("isLogin");
+  let loginStatus = localStorage.getItem('isLogin')
   if (to.matched.some((m) => m.meta.auth)) {
     if (loginStatus) {
-      next();
+      next()
     } else {
-      next({ path: "/login", query: { Rurl: to.fullPath } });
+      next({ path: '/login', query: { Rurl: to.fullPath } })
     }
   } else {
-    next();
+    next()
   }
-});
+})
 
-export default router;
+export default router

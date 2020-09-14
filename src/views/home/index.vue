@@ -1,6 +1,6 @@
 <template>
   <div class="home-container">
-    <Search v-model="value" placeholder="请输入搜索关键词" />
+    <Search v-model="value" placeholder="请输入搜索关键词" @click="toSearch" />
     <Swipe
       class="my-swipe"
       :autoplay="3000"
@@ -14,17 +14,17 @@
 
     <div class="bscroll" ref="bscroll">
       <div class="bscroll-container">
-        <div v-for="i in 30" :key="i">{{i}}</div>
+        <div v-for="i in 30" :key="i">{{ i }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import BScroll from "better-scroll";
-import { Swipe, SwipeItem, Search } from "vant";
+import BScroll from 'better-scroll'
+import { Swipe, SwipeItem, Search } from 'vant'
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Swipe,
     SwipeItem,
@@ -32,31 +32,35 @@ export default {
   },
   data() {
     return {
-      value: "",
+      value: '',
       images: [
         {
           index: 0,
-          url: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          url: 'https://img.yzcdn.cn/vant/apple-1.jpg',
         },
         {
           index: 1,
-          url: "https://img.yzcdn.cn/vant/apple-2.jpg",
+          url: 'https://img.yzcdn.cn/vant/apple-2.jpg',
         },
         {
           index: 2,
-          url: "https://img.yzcdn.cn/vant/apple-1.jpg",
+          url: 'https://img.yzcdn.cn/vant/apple-1.jpg',
         },
       ],
-    };
+    }
   },
   mounted() {
     this.$nextTick(() => {
-      let bscrollDom = this.$refs.bscroll;
-      this.aBScroll = new BScroll(bscrollDom, {});
-    });
+      let bscrollDom = this.$refs.bscroll
+      this.aBScroll = new BScroll(bscrollDom, {})
+    })
   },
-  methods: {},
-};
+  methods: {
+    toSearch() {
+      this.$router.push('/SearchPage')
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
