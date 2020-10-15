@@ -8,7 +8,7 @@ module.exports = {
   lintOnSave: true,
   productionSourceMap: false,
   devServer: {
-    port: 8888,
+    port: 8099,
     open: true,
     proxy: {
       '/api': {

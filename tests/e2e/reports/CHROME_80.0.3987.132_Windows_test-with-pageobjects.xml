@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="test-with-pageobjects"
+    errors="0" failures="1" hostname="" id="" package="test-with-pageobjects" skipped="1"
+    tests="1" time="6.179" timestamp="">
+  
+    <testcase name="e2e tests using page objects" classname="test-with-pageobjects" time="6.179" assertions="3">
+
+    
+
+      <failure message="Expected element &lt;Section [name=app],Element [name=@welcome]&gt; to be visible - element was not found - expected &#34;visible&#34; but got: &#34;not found&#34; (5169ms)">    at Object.e2e tests using page objects (F:\projectFile\vue-app\tests\e2e\specs\test-with-pageobjects.js:18:16)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+    
+    <testcase
+      name="verify if string &#34;e2e-nightwatch&#34; is within the cli plugin links" classname="test-with-pageobjects">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

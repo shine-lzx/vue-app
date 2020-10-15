@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="2">
+
+  <testsuite name="test"
+    errors="0" failures="1" hostname="" id="" package="test" skipped="0"
+    tests="2" time="6.498" timestamp="">
+  
+    <testcase name="default e2e tests" classname="test" time="0.9360" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="example e2e test using a custom command" classname="test" time="5.562" assertions="2">
+
+      <failure message="Failed [strictEqual]: (Expected values to be strictly equal:
+
+0 !== 3
+) - expected &#34;3&#34; but got: &#34;0&#34; (0ms)">
+0 !== 3
+
+    at Object.command (F:\projectFile\vue-app\tests\e2e\custom-commands\openHomepage.js:21:17)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
